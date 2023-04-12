@@ -1,0 +1,2 @@
+class ViewController:
+    pass

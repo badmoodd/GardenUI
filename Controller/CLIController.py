@@ -1,0 +1,2 @@
+class CLIController:
+    pass

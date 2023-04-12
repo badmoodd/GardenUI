@@ -1,0 +1,3 @@
+{
+    "files": ["Resorces/assets/garden.png","Resorces/assets/potato.png","Garden/Entities.py","View/form.ui","Garden/Functions.py","Resorces/assets/backgroud.png","View/MainWindow.py","Resorces/assets/weed.png","Controller/ViewController.py","Resorces/assets/tardis.png","Resorces/assets/weather.png","Resorces/assets/seed.png","Resorces/assets/zucchini.png","Resorces/assets/cucumber.png","Resorces/storage_of_plants.json","Resorces/assets/tomato.png","Resorces/assets/eggplant.png","View/UI/main_window.ui","Resorces/new_storage.json","main.py","Controller/ApplicationController.py","Controller/CLIController.py","Resorces/assets/carrot.png"]
+}
