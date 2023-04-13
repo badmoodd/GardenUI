@@ -1,6 +1,8 @@
 # This Python file uses the following encoding: utf-8
 import json
 from pathlib import Path
+
+from PySide6 import QtGui
 from PySide6.QtCore import QFile
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QWidget, QPushButton
@@ -20,7 +22,9 @@ class MainWindow(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.load_ui()
+        self.setWindowTitle("Garden")
         self.cells_buttons_list = self.fill_cells_with_images()
+        self.button_add_plant = self.set_button("button_add_plant", "Resorces/assets/button_add_plant.png")
         self.cells_buttons_list[0].clicked.connect(button2_clicked)
 
     def load_ui(self):
@@ -31,58 +35,48 @@ class MainWindow(QWidget):
         loader.load(ui_file, self)
         ui_file.close()
 
-    def kal(self):
-        main = []
-
-        for i in range(WIDTH):
-            for j in range(HEIGHT):
-                r = []
-                stri = "cell" + str(i) + str(j)
-
-                button = self.findChild(QPushButton, stri)
-                button.setStyleSheet("border-image : url(Resorces/assets/weed.png);")
-                r.append(button)
-            main.append(r)
-
-        return main
-
-    def fill_cells_with_images(self):
+    def fill_cells_with_images(self) -> list:
         entities: dict = ApplicationController.read_entities_from(PATH_TO_PLANTS)
         cells: list = []
 
         for a_plot in entities["plots"]:
             button_name = "cell" + str(a_plot["width"]) + str(a_plot["height"])
-            button = self.findChild(QPushButton, button_name)
             if a_plot["is_empty"]:
+                button = self.set_button(button_name, "Resorces/assets/garden_bed.png")
                 cells.append(button)
                 continue
             else:
                 if not a_plot["plant"]["no_plant"]:
                     if a_plot["plant"]["name_of_plant"] == "potato":
-                        button.setStyleSheet("border-image : url(Resorces/assets/potato.png);")
+                        button = self.set_button(button_name, "Resorces/assets/potato.png")
                         cells.append(button)
                         continue
                     if a_plot["plant"]["name_of_plant"] == "carrot":
-                        button.setStyleSheet("border-image: url(Resorces/assets/carrot.png);")
+                        button = self.set_button(button_name, "Resorces/assets/carrot.png")
                         cells.append(button)
                         continue
                     if a_plot["plant"]["name_of_plant"] == "tomato":
-                        button.setStyleSheet("border-image : url(Resorces/assets/tomato.png);")
+                        button = self.set_button(button_name, "Resorces/assets/tomato.png")
                         cells.append(button)
                         continue
                     if a_plot["plant"]["name_of_plant"] == "cucumber":
-                        button.setStyleSheet("border-image : url(Resorces/assets/cucumber.png);")
+                        button = self.set_button(button_name, "Resorces/assets/cucumber.png")
                         cells.append(button)
                         continue
                     if a_plot["plant"]["name_of_plant"] == "zucchini":
-                        button.setStyleSheet("border-image : url(Resorces/assets/zucchini.png);")
+                        button = self.set_button(button_name, "Resorces/assets/zucchini.png")
                         cells.append(button)
                         continue
                     if a_plot["plant"]["name_of_plant"] == "eggplant":
-                        button.setStyleSheet("border-image: url(Resorces/assets/eggplant.png);")
+                        button = self.set_button(button_name, "Resorces/assets/eggplant.png")
                         cells.append(button)
                         continue
                 if not a_plot["osot"]["no_osot"]:
-                    button.setStyleSheet("border-image : url(Resorces/assets/weed.png);")
+                    button = self.set_button(button_name, "Resorces/assets/weed.png")
                     cells.append(button)
         return cells
+
+    def set_button(self, ui_name, image_path: str):
+        button = self.findChild(QPushButton, ui_name)
+        button.setStyleSheet("border-image : url(" + image_path + ");")
+        return button
