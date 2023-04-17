@@ -113,7 +113,7 @@
          "height": 0,
          "is_empty": false,
          "plant": {
-            "name_of_plant": "tomato",
+            "name_of_plant": "zucchini",
             "fruits_count": 0,
             "grown_up": false,
             "health": 50,

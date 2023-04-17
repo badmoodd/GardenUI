@@ -3,7 +3,7 @@ import getopt
 import random
 from Garden.Entities import *
 
-PATH_TO_PLANTS = "/Users/egorvasilkov/Garden/Resorces/storage_of_plants.json"
+PATH_TO_PLANTS = "/Resources/storage_of_plants.json"
 
 
 def init_garden():
