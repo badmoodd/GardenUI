@@ -1,5 +1,5 @@
 import json
-from entities import *
+from Model.entities import *
 
 
 class Pair:
@@ -27,12 +27,6 @@ class Garden:
         self.height = 5
         self.arr_plot = [[Plot() for j in range(self.height)] for i in range(self.width)]
 
-    def get_width(self):
-        return self.width
-
-    def get_height(self):
-        return self.height
-
     def watering_call(self, width, height):
         if self.arr_plot[width][height].plant is not None:
 
@@ -58,8 +52,7 @@ class Garden:
     def drought_call(self):
         for i in range(self.width):
             for j in range(self.height):
-                if self.arr_plot[self.width][self.height].is_empty or self.arr_plot[self.width][
-                    self.height].plant is None:
+                if self.arr_plot[self.width][self.height].is_empty or self.arr_plot[self.width][self.height].plant is None:
                     continue
                 if self.arr_plot[self.width][self.height].plant.is_thirsty:
                     self.arr_plot[self.width][self.height].plant.health -= 15

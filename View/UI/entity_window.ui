@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>445</width>
+    <width>454</width>
     <height>455</height>
    </rect>
   </property>
@@ -45,20 +45,20 @@
   <widget class="QPushButton" name="image_button">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>60</y>
-     <width>121</width>
-     <height>121</height>
+     <width>101</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="text">
-    <string>PushButton</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>30</y>
      <width>81</width>
      <height>21</height>
@@ -81,7 +81,7 @@
   <widget class="QLabel" name="health_label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>200</y>
      <width>71</width>
      <height>21</height>
@@ -94,7 +94,7 @@
   <widget class="QLabel" name="size_label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>240</y>
      <width>71</width>
      <height>21</height>
@@ -107,7 +107,7 @@
   <widget class="QLabel" name="edit_health_label">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>200</y>
      <width>61</width>
      <height>21</height>
@@ -120,7 +120,7 @@
   <widget class="QLabel" name="edit_size_label">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>240</y>
      <width>61</width>
      <height>21</height>
@@ -133,7 +133,7 @@
   <widget class="QLabel" name="grown_up_label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>280</y>
      <width>71</width>
      <height>21</height>
@@ -146,7 +146,7 @@
   <widget class="QLabel" name="edit_grown_up_label">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>280</y>
      <width>61</width>
      <height>21</height>
@@ -159,7 +159,7 @@
   <widget class="QLabel" name="thirsty_label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>320</y>
      <width>71</width>
      <height>21</height>
@@ -172,7 +172,7 @@
   <widget class="QLabel" name="edit_thirsty_label">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>320</y>
      <width>61</width>
      <height>21</height>
@@ -185,7 +185,7 @@
   <widget class="QLabel" name="fruits_label">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>360</y>
      <width>81</width>
      <height>21</height>
@@ -198,7 +198,7 @@
   <widget class="QLabel" name="edit_fruits_label">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>160</x>
      <y>360</y>
      <width>61</width>
      <height>21</height>

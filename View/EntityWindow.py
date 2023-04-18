@@ -7,10 +7,11 @@
 
 
 from PySide6 import QtCore, QtGui, QtWidgets
+from PySide6.QtWidgets import QWidget
 
 
-class Ui_entity_screen(object):
-    def setupUi(self, entity_screen):
+class Ui_entity_screen(QWidget):
+    def setupUi(self, entity_screen, current_cell: QtWidgets.QPushButton):
         entity_screen.setObjectName("entity_screen")
         entity_screen.resize(445, 455)
         self.buttonBox = QtWidgets.QDialogButtonBox(parent=entity_screen)
@@ -23,8 +24,12 @@ class Ui_entity_screen(object):
         self.select_button.setGeometry(QtCore.QRect(330, 60, 100, 32))
         self.select_button.setObjectName("select_button")
         self.image_button = QtWidgets.QPushButton(parent=entity_screen)
-        self.image_button.setGeometry(QtCore.QRect(20, 60, 121, 121))
+        self.image_button.setGeometry(QtCore.QRect(20, 60, 101, 101))
         self.image_button.setObjectName("image_button")
+
+        if isinstance(current_cell, QtWidgets.QPushButton):
+            self.image_button.setStyleSheet(current_cell.styleSheet())
+
         self.label = QtWidgets.QLabel(parent=entity_screen)
         self.label.setGeometry(QtCore.QRect(20, 30, 81, 21))
         self.label.setObjectName("label")
@@ -86,7 +91,6 @@ class Ui_entity_screen(object):
         _translate = QtCore.QCoreApplication.translate
         entity_screen.setWindowTitle(_translate("entity_screen", "Entity's Properties"))
         self.select_button.setText(_translate("entity_screen", "Select"))
-        self.image_button.setText(_translate("entity_screen", "PushButton"))
         self.label.setText(_translate("entity_screen",
                                       "<html><head/><body><p><span style=\" font-size:14pt;\">Plant in Cell</span></p></body></html>"))
         self.health_label.setText(_translate("entity_screen", "Health"))
