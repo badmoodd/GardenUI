@@ -9,9 +9,9 @@
          "plant": {
             "no_plant": true
          },
-         "osot": {
+         "weed": {
             "damage": 10,
-            "no_osot": false
+            "no_weed": false
          }
       },
       {
@@ -82,13 +82,13 @@
             "name_of_plant": "potato",
             "fruits_count": 0,
             "grown_up": false,
-            "health": 50,
+            "health": 40,
             "is_thirsty": false,
-            "size": 20,
+            "size": 100,
             "no_plant": false
          },
-         "osot": {
-            "no_osot": true
+         "weed": {
+            "no_weed": true
          }
       },
       {
@@ -99,13 +99,13 @@
             "name_of_plant": "carrot",
             "fruits_count": 0,
             "grown_up": false,
-            "health": 50,
+            "health": 45,
             "is_thirsty": false,
-            "size": 20,
+            "size": 100,
             "no_plant": false
          },
-         "osot": {
-            "no_osot": true
+         "weed": {
+            "no_weed": true
          }
       },
       {
@@ -116,13 +116,13 @@
             "name_of_plant": "zucchini",
             "fruits_count": 0,
             "grown_up": false,
-            "health": 50,
+            "health": 30,
             "is_thirsty": false,
-            "size": 20,
+            "size": 100,
             "no_plant": false
          },
-         "osot": {
-            "no_osot": true
+         "weed": {
+            "no_weed": true
          }
       },
       {

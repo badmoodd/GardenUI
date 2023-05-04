@@ -4,18 +4,21 @@ from PySide6 import QtWidgets, QtCore
 from PySide6.QtWidgets import QPushButton
 
 from Controller.ApplicationController import ApplicationController
+from Controller.ViewController import ViewController
 from View.EntityWindow import Ui_entity_screen
-import logging
+from Model.garden import Garden
+
 WIDTH = 4
 HEIGHT = 5
 PATH_TO_PLANTS = "Resources/new_storage.json"
 
 
 class Ui_main_screen(QtWidgets.QWidget):
-    def setupUi(self, main_screen):
+    def setupUi(self, main_screen, controller):
+        self.controller = controller
         main_screen.setObjectName("main_screen")
         main_screen.setEnabled(True)
-        main_screen.resize(1003, 455)
+        main_screen.resize(1000, 455)
         self.cell00 = QtWidgets.QPushButton(parent=main_screen)
         self.cell00.setGeometry(QtCore.QRect(30, 30, 71, 71))
         self.cell00.setStyleSheet("")
@@ -159,10 +162,13 @@ class Ui_main_screen(QtWidgets.QWidget):
         self.rain_button = QtWidgets.QPushButton(parent=main_screen)
         self.rain_button.setGeometry(QtCore.QRect(30, 400, 100, 32))
         self.rain_button.setObjectName("rain_button")
+        self.rain_button.clicked.connect(controller.rain_call)
 
         self.drought_button = QtWidgets.QPushButton(parent=main_screen)
         self.drought_button.setGeometry(QtCore.QRect(160, 400, 100, 32))
         self.drought_button.setObjectName("drought_button")
+        self.drought_button.clicked.connect(print("egoor"))
+
         self.garden_image_button = QtWidgets.QPushButton(parent=main_screen)
         self.garden_image_button.setGeometry(QtCore.QRect(500, 30, 430, 350))
         self.garden_image_button.setText("")
@@ -221,7 +227,7 @@ class Ui_main_screen(QtWidgets.QWidget):
                         self.get_cell_button(current_width, current_height). \
                             setStyleSheet("border-image : url(Resources/assets/eggplant.png);")
                         continue
-                if not a_plot["osot"]["no_osot"]:
+                if not a_plot["weed"]["no_weed"]:
                     self.get_cell_button(current_width, current_height). \
                         setStyleSheet("border-image : url(Resources/assets/weed.png);")
 
@@ -233,6 +239,7 @@ class Ui_main_screen(QtWidgets.QWidget):
         print(f'{sender} was clicked!')
         self.window = QtWidgets.QDialog()
         self.ui = Ui_entity_screen()
-        self.ui.setupUi(self.window, sender)
+        self.ui.setupUi(self.window, sender, self.controller)
 
         self.window.show()
+

@@ -8,10 +8,14 @@
 
 from PySide6 import QtCore, QtGui, QtWidgets
 from PySide6.QtWidgets import QWidget
+from Model.garden import *
 
 
 class Ui_entity_screen(QWidget):
-    def setupUi(self, entity_screen, current_cell: QtWidgets.QPushButton):
+    def setupUi(self, entity_screen, button_cell: QtWidgets.QPushButton, controller):
+        width = int(button_cell.objectName().replace("cell", "")[0])
+        height = int(button_cell.objectName().replace("cell", "")[1])
+
         entity_screen.setObjectName("entity_screen")
         entity_screen.resize(445, 455)
         self.buttonBox = QtWidgets.QDialogButtonBox(parent=entity_screen)
@@ -20,72 +24,106 @@ class Ui_entity_screen(QWidget):
         self.buttonBox.setStandardButtons(
             QtWidgets.QDialogButtonBox.StandardButton.Cancel | QtWidgets.QDialogButtonBox.StandardButton.Ok)
         self.buttonBox.setObjectName("buttonBox")
+
         self.select_button = QtWidgets.QPushButton(parent=entity_screen)
         self.select_button.setGeometry(QtCore.QRect(330, 60, 100, 32))
         self.select_button.setObjectName("select_button")
+
         self.image_button = QtWidgets.QPushButton(parent=entity_screen)
         self.image_button.setGeometry(QtCore.QRect(20, 60, 101, 101))
         self.image_button.setObjectName("image_button")
-
-        if isinstance(current_cell, QtWidgets.QPushButton):
-            self.image_button.setStyleSheet(current_cell.styleSheet())
+        if isinstance(button_cell, QtWidgets.QPushButton):
+            self.image_button.setStyleSheet(button_cell.styleSheet())
 
         self.label = QtWidgets.QLabel(parent=entity_screen)
         self.label.setGeometry(QtCore.QRect(20, 30, 81, 21))
         self.label.setObjectName("label")
+
         self.comboBox = QtWidgets.QComboBox(parent=entity_screen)
         self.comboBox.setGeometry(QtCore.QRect(200, 60, 111, 32))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItems(["None", "Potato", "Carrot", "Tomato", "Cucumber", "Eggplant", "Zucchini"])
+
+        """Health label and representation"""
         self.health_label = QtWidgets.QLabel(parent=entity_screen)
         self.health_label.setGeometry(QtCore.QRect(20, 200, 71, 21))
         self.health_label.setObjectName("health_label")
+
+        self.edit_health_label = QtWidgets.QLabel(parent=entity_screen)
+        self.edit_health_label.setGeometry(QtCore.QRect(150, 200, 61, 21))
+        self.edit_health_label.setObjectName("edit_health_label")
+        self.edit_health_label.setText(controller.model.get_health(width=width, height=height))
+
+        """Size label and representation"""
         self.size_label = QtWidgets.QLabel(parent=entity_screen)
         self.size_label.setGeometry(QtCore.QRect(20, 240, 71, 21))
         self.size_label.setObjectName("size_label")
-        self.edit_health_label = QtWidgets.QLabel(parent=entity_screen)
-        self.edit_health_label.setGeometry(QtCore.QRect(150, 200, 61, 21))
-        self.edit_health_label.setText("")
-        self.edit_health_label.setObjectName("edit_health_label")
+
         self.edit_size_label = QtWidgets.QLabel(parent=entity_screen)
         self.edit_size_label.setGeometry(QtCore.QRect(150, 240, 61, 21))
-        self.edit_size_label.setText("")
         self.edit_size_label.setObjectName("edit_size_label")
+        self.edit_size_label.setText(controller.model.get_size(width=width, height=height))
+
+        """Is grown up label and representation"""
         self.grown_up_label = QtWidgets.QLabel(parent=entity_screen)
         self.grown_up_label.setGeometry(QtCore.QRect(20, 280, 71, 21))
         self.grown_up_label.setObjectName("grown_up_label")
+
         self.edit_grown_up_label = QtWidgets.QLabel(parent=entity_screen)
         self.edit_grown_up_label.setGeometry(QtCore.QRect(150, 280, 61, 21))
-        self.edit_grown_up_label.setText("")
         self.edit_grown_up_label.setObjectName("edit_grown_up_label")
+        self.edit_grown_up_label.setText(controller.model.check_is_grown_up(width=width, height=height))
+
+        """Is thirsty label and representation"""
         self.thirsty_label = QtWidgets.QLabel(parent=entity_screen)
         self.thirsty_label.setGeometry(QtCore.QRect(20, 320, 71, 21))
         self.thirsty_label.setObjectName("thirsty_label")
+
         self.edit_thirsty_label = QtWidgets.QLabel(parent=entity_screen)
         self.edit_thirsty_label.setGeometry(QtCore.QRect(150, 320, 61, 21))
-        self.edit_thirsty_label.setText("")
         self.edit_thirsty_label.setObjectName("edit_thirsty_label")
+        self.edit_thirsty_label.setText(controller.model.check_is_thirsty(width=width, height=height))
+
+        """Fruits count label and representation"""
         self.fruits_label = QtWidgets.QLabel(parent=entity_screen)
         self.fruits_label.setGeometry(QtCore.QRect(20, 360, 81, 21))
         self.fruits_label.setObjectName("fruits_label")
+
         self.edit_fruits_label = QtWidgets.QLabel(parent=entity_screen)
         self.edit_fruits_label.setGeometry(QtCore.QRect(150, 360, 61, 21))
-        self.edit_fruits_label.setText("")
         self.edit_fruits_label.setObjectName("edit_fruits_label")
+        self.edit_fruits_label.setText(controller.model.get_fruits_count(width=width, height=height))
+
         self.watering_button = QtWidgets.QPushButton(parent=entity_screen)
         self.watering_button.setGeometry(QtCore.QRect(330, 190, 100, 32))
         self.watering_button.setObjectName("watering_button")
+#        self.watering_button.setPressed(False)
+        self.watering_button.clicked.connect(controller.model.watering_call(width=width, height=height))
+
+
         self.weeding_button = QtWidgets.QPushButton(parent=entity_screen)
         self.weeding_button.setGeometry(QtCore.QRect(330, 240, 100, 32))
         self.weeding_button.setObjectName("weeding_button")
+        self.weeding_button.clicked.connect(print("sklfjdv"))
+
         self.fertilizing_button = QtWidgets.QPushButton(parent=entity_screen)
         self.fertilizing_button.setGeometry(QtCore.QRect(330, 290, 100, 32))
         self.fertilizing_button.setObjectName("fertilizing_button")
+        # self.fertilizing_button.clicked.connect(controller.model.fertilizer_call(width=width, height=height))
+
 
         self.retranslateUi(entity_screen)
-        self.buttonBox.accepted.connect(entity_screen.accept)  # type: ignore
-        self.buttonBox.rejected.connect(entity_screen.reject)  # type: ignore
+        # self.buttonBox.accepted.connect(entity_screen.accept)  # type: ignore
+        # self.buttonBox.rejected.connect(entity_screen.reject)  # type: ignore
         QtCore.QMetaObject.connectSlotsByName(entity_screen)
+
+    def entity_name_in_plot(self, model_cell: Plot) -> str:
+        if not model_cell.plant is None:
+            return "plant"
+        if not model_cell.weed is None:
+            return "weed"
+        else:
+            return "empty"
 
     def retranslateUi(self, entity_screen):
         _translate = QtCore.QCoreApplication.translate

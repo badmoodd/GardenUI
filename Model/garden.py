@@ -26,6 +26,35 @@ class Garden:
         self.width = 4
         self.height = 5
         self.arr_plot = [[Plot() for j in range(self.height)] for i in range(self.width)]
+        self.read_entities_from("Resources/new_storage.json")
+
+    def get_size(self, width, height) -> str:
+        if isinstance(self.arr_plot[width][height].plant, Plant):
+            return str(self.arr_plot[width][height].plant.size)
+
+    def get_health(self, width, height) -> str:
+        if isinstance(self.arr_plot[width][height].plant, Plant):
+            return str(self.arr_plot[width][height].plant.health)
+
+    def get_fruits_count(self, width, height) -> str:
+        if isinstance(self.arr_plot[width][height].plant, Plant):
+            return str(self.arr_plot[width][height].plant.fruits_count)
+
+    def check_is_thirsty(self, width, height) -> str:
+        if isinstance(self.arr_plot[width][height].plant, Plant):
+            if self.arr_plot[width][height].plant.is_thirsty:
+                return "Yes"
+            else:
+                return "No"
+
+    def check_is_grown_up(self, width, height) -> str:
+        if isinstance(self.arr_plot[width][height].plant, Plant):
+            if self.arr_plot[width][height].plant.size == 100:
+                self.arr_plot[width][height].plant.grown_up = True
+            if self.arr_plot[width][height].plant.grown_up:
+                return "Yes"
+            else:
+                return "No"
 
     def watering_call(self, width, height):
         if self.arr_plot[width][height].plant is not None:
@@ -50,14 +79,14 @@ class Garden:
 
     #    чутка модил
     def drought_call(self):
-        for i in range(self.width):
-            for j in range(self.height):
-                if self.arr_plot[self.width][self.height].is_empty or self.arr_plot[self.width][self.height].plant is None:
+        for i in self.arr_plot:
+            for plot in i:
+                if plot.is_empty or plot.plant is None:
                     continue
-                if self.arr_plot[self.width][self.height].plant.is_thirsty:
-                    self.arr_plot[self.width][self.height].plant.health -= 15
+                if plot.plant.is_thirsty:
+                    plot.plant.health -= 15
                 else:
-                    self.arr_plot[self.width][self.height].plant.is_thirsty = True
+                    plot.plant.is_thirsty = True
 
     def set_plant(self, plant, width, height):
         plot = Plot()
