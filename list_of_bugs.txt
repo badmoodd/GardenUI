@@ -1,0 +1,4 @@
+1. need to update screen information
+2. try to put entity without pushing the select button
+3. enitie's properties can go down below zero
+4. add weeding button

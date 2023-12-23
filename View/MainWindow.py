@@ -162,12 +162,13 @@ class Ui_main_screen(QtWidgets.QWidget):
         self.rain_button = QtWidgets.QPushButton(parent=main_screen)
         self.rain_button.setGeometry(QtCore.QRect(30, 400, 100, 32))
         self.rain_button.setObjectName("rain_button")
-        self.rain_button.clicked.connect(controller.rain_call)
+        self.rain_button.clicked.connect(lambda: controller.rain_call())
 
         self.drought_button = QtWidgets.QPushButton(parent=main_screen)
         self.drought_button.setGeometry(QtCore.QRect(160, 400, 100, 32))
         self.drought_button.setObjectName("drought_button")
-        self.drought_button.clicked.connect(print("egoor"))
+        self.drought_button.clicked.connect(lambda: controller.drought_call())
+        self.drought_button.clicked.connect(lambda: self.fill_cells_with_images())
 
         self.garden_image_button = QtWidgets.QPushButton(parent=main_screen)
         self.garden_image_button.setGeometry(QtCore.QRect(500, 30, 430, 350))
@@ -240,6 +241,6 @@ class Ui_main_screen(QtWidgets.QWidget):
         self.window = QtWidgets.QDialog()
         self.ui = Ui_entity_screen()
         self.ui.setupUi(self.window, sender, self.controller)
-
         self.window.show()
+        self.window.rejected.connect(self.fill_cells_with_images)
 

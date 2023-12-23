@@ -7,6 +7,136 @@
          "height": 0,
          "is_empty": false,
          "plant": {
+            "name_of_plant": "potato",
+            "fruits_count": 0,
+            "grown_up": true,
+            "health": 45,
+            "is_thirsty": true,
+            "size": 100,
+            "no_plant": false
+         },
+         "weed": {
+            "no_weed": true
+         }
+      },
+      {
+         "width": 0,
+         "height": 1,
+         "is_empty": false,
+         "plant": {
+            "name_of_plant": "carrot",
+            "fruits_count": 0,
+            "grown_up": false,
+            "health": 65,
+            "is_thirsty": true,
+            "size": 70,
+            "no_plant": false
+         },
+         "weed": {
+            "no_weed": true
+         }
+      },
+      {
+         "width": 0,
+         "height": 2,
+         "is_empty": true
+      },
+      {
+         "width": 0,
+         "height": 3,
+         "is_empty": true
+      },
+      {
+         "width": 0,
+         "height": 4,
+         "is_empty": false,
+         "plant": {
+            "name_of_plant": "carrot",
+            "fruits_count": 0,
+            "grown_up": false,
+            "health": 50,
+            "is_thirsty": false,
+            "size": 20,
+            "no_plant": false
+         },
+         "weed": {
+            "no_weed": true
+         }
+      },
+      {
+         "width": 1,
+         "height": 0,
+         "is_empty": true
+      },
+      {
+         "width": 1,
+         "height": 1,
+         "is_empty": false,
+         "plant": {
+            "name_of_plant": "eggplant",
+            "fruits_count": 0,
+            "grown_up": false,
+            "health": 35,
+            "is_thirsty": true,
+            "size": 20,
+            "no_plant": false
+         },
+         "weed": {
+            "no_weed": true
+         }
+      },
+      {
+         "width": 1,
+         "height": 2,
+         "is_empty": false,
+         "plant": {
+            "name_of_plant": "tomato",
+            "fruits_count": 0,
+            "grown_up": false,
+            "health": 35,
+            "is_thirsty": true,
+            "size": 20,
+            "no_plant": false
+         },
+         "weed": {
+            "no_weed": true
+         }
+      },
+      {
+         "width": 1,
+         "height": 3,
+         "is_empty": true
+      },
+      {
+         "width": 1,
+         "height": 4,
+         "is_empty": true
+      },
+      {
+         "width": 2,
+         "height": 0,
+         "is_empty": true
+      },
+      {
+         "width": 2,
+         "height": 1,
+         "is_empty": true
+      },
+      {
+         "width": 2,
+         "height": 2,
+         "is_empty": true
+      },
+      {
+         "width": 2,
+         "height": 3,
+         "is_empty": true
+      },
+      {
+         "width": 2,
+         "height": 4,
+         "is_empty": false,
+         "plant": {
             "no_plant": true
          },
          "weed": {
@@ -15,114 +145,15 @@
          }
       },
       {
-         "width": 0,
-         "height": 1,
-         "is_empty": true
-      },
-      {
-         "width": 0,
-         "height": 2,
-         "is_empty": true
-      },
-      {
-         "width": 0,
-         "height": 3,
-         "is_empty": true
-      },
-      {
-         "width": 0,
-         "height": 4,
-         "is_empty": true
-      },
-      {
-         "width": 1,
-         "height": 0,
-         "is_empty": true
-      },
-      {
-         "width": 1,
-         "height": 1,
-         "is_empty": true
-      },
-      {
-         "width": 1,
-         "height": 2,
-         "is_empty": true
-      },
-      {
-         "width": 1,
-         "height": 3,
-         "is_empty": true
-      },
-      {
-         "width": 1,
-         "height": 4,
-         "is_empty": true
-      },
-      {
-         "width": 2,
-         "height": 0,
-         "is_empty": true
-      },
-      {
-         "width": 2,
-         "height": 1,
-         "is_empty": true
-      },
-      {
-         "width": 2,
-         "height": 2,
-         "is_empty": true
-      },
-      {
-         "width": 2,
-         "height": 3,
-         "is_empty": false,
-         "plant": {
-            "name_of_plant": "potato",
-            "fruits_count": 0,
-            "grown_up": false,
-            "health": 40,
-            "is_thirsty": false,
-            "size": 100,
-            "no_plant": false
-         },
-         "weed": {
-            "no_weed": true
-         }
-      },
-      {
-         "width": 2,
-         "height": 4,
-         "is_empty": false,
-         "plant": {
-            "name_of_plant": "carrot",
-            "fruits_count": 0,
-            "grown_up": false,
-            "health": 45,
-            "is_thirsty": false,
-            "size": 100,
-            "no_plant": false
-         },
-         "weed": {
-            "no_weed": true
-         }
-      },
-      {
          "width": 3,
          "height": 0,
          "is_empty": false,
          "plant": {
-            "name_of_plant": "zucchini",
-            "fruits_count": 0,
-            "grown_up": false,
-            "health": 30,
-            "is_thirsty": false,
-            "size": 100,
-            "no_plant": false
+            "no_plant": true
          },
          "weed": {
-            "no_weed": true
+            "damage": 10,
+            "no_weed": false
          }
       },
       {
@@ -143,7 +174,14 @@
       {
          "width": 3,
          "height": 4,
-         "is_empty": true
+         "is_empty": false,
+         "plant": {
+            "no_plant": true
+         },
+         "weed": {
+            "damage": 10,
+            "no_weed": false
+         }
       }
    ]
 }

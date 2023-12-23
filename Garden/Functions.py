@@ -4,7 +4,7 @@ import random
 from Model.entities import *
 from Model.garden import Garden
 
-PATH_TO_PLANTS = "/Resources/storage_of_plants.json"
+PATH_TO_PLANTS = "Resources/new_storage.json"
 
 
 def init_garden():
@@ -125,6 +125,13 @@ def what_plant(lst):
         return Tomato()
     if lst[0] == "potato":
         return Potato()
+    if lst[0] == "cucumber":
+        return Cucumber()
+    if lst[0] == "zucchini":
+        return Zucchini()
+    if lst[0] == "eggplant":
+        return Eggplant()
+
     # if lst[0] == "apple_tree":
     #     return AppleTree()
     # if lst[0] == "plum_tree":

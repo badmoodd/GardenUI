@@ -28,6 +28,9 @@ class Ui_entity_screen(QWidget):
         self.select_button = QtWidgets.QPushButton(parent=entity_screen)
         self.select_button.setGeometry(QtCore.QRect(330, 60, 100, 32))
         self.select_button.setObjectName("select_button")
+        self.select_button.clicked.connect(
+            lambda: controller.put_entity_to_cell(width, height, self.comboBox.currentText()))
+        self.select_button.clicked.connect(entity_screen.reject)
 
         self.image_button = QtWidgets.QPushButton(parent=entity_screen)
         self.image_button.setGeometry(QtCore.QRect(20, 60, 101, 101))
@@ -42,7 +45,12 @@ class Ui_entity_screen(QWidget):
         self.comboBox = QtWidgets.QComboBox(parent=entity_screen)
         self.comboBox.setGeometry(QtCore.QRect(200, 60, 111, 32))
         self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItems(["None", "Potato", "Carrot", "Tomato", "Cucumber", "Eggplant", "Zucchini"])
+        self.comboBox.addItems(["None", "Potato", "Carrot", "Tomato", "Cucumber", "Eggplant", "Zucchini", "Weed"])
+
+        # to activate combobox
+        # self.comboBox.activated.connect(
+        #     lambda: controller.put_entity_to_cell(width, height, self.comboBox.currentText()))
+        # self.comboBox.activated.connect(entity_screen.reject)
 
         """Health label and representation"""
         self.health_label = QtWidgets.QLabel(parent=entity_screen)
@@ -97,20 +105,20 @@ class Ui_entity_screen(QWidget):
         self.watering_button = QtWidgets.QPushButton(parent=entity_screen)
         self.watering_button.setGeometry(QtCore.QRect(330, 190, 100, 32))
         self.watering_button.setObjectName("watering_button")
-#        self.watering_button.setPressed(False)
-        self.watering_button.clicked.connect(controller.model.watering_call(width=width, height=height))
-
+        self.watering_button.clicked.connect(lambda: controller.watering_call(width=width, height=height))
+        self.watering_button.clicked.connect(entity_screen.reject)
 
         self.weeding_button = QtWidgets.QPushButton(parent=entity_screen)
         self.weeding_button.setGeometry(QtCore.QRect(330, 240, 100, 32))
         self.weeding_button.setObjectName("weeding_button")
-        self.weeding_button.clicked.connect(print("sklfjdv"))
+        self.weeding_button.clicked.connect(lambda: controller.weeding_call(width=width, height=height))
+        self.weeding_button.clicked.connect(entity_screen.reject)
 
         self.fertilizing_button = QtWidgets.QPushButton(parent=entity_screen)
         self.fertilizing_button.setGeometry(QtCore.QRect(330, 290, 100, 32))
         self.fertilizing_button.setObjectName("fertilizing_button")
-        # self.fertilizing_button.clicked.connect(controller.model.fertilizer_call(width=width, height=height))
-
+        self.fertilizing_button.clicked.connect(lambda: controller.fertilizer_call(width=width, height=height))
+        self.fertilizing_button.clicked.connect(entity_screen.reject)
 
         self.retranslateUi(entity_screen)
         # self.buttonBox.accepted.connect(entity_screen.accept)  # type: ignore
